@@ -83,7 +83,12 @@ Vagrant.configure("2") do |config|
     chef.json = {
       "nodejs" => {
         "version" => "0.10.10",
-        "install_method" => "binary"
+        "install_method" => "binary",
+        "checksum_linux_x86" => "61f755eb02fa9520d7d5116740742721158d123058ca4b56bd6ee068d6b9ad96"
+      },
+      "mongodb" => {
+        "package_name" => "mongodb",
+        "package_version" => "1:2.0.4-1ubuntu2.1"
       }
     }
   end
