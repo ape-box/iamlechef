@@ -16,7 +16,8 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 3000, host: 30011
+  config.vm.network :forwarded_port, guest: 80, host: 30012
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -80,6 +81,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "apt"
     chef.add_recipe "nodejs"
     chef.add_recipe "mongodb"
+    chef.add_recipe "node_packages"
     chef.json = {
       "nodejs" => {
         "version" => "0.10.10",
@@ -89,6 +91,11 @@ Vagrant.configure("2") do |config|
       "mongodb" => {
         "package_name" => "mongodb",
         "package_version" => "1:2.0.4-1ubuntu2.1"
+      },
+      "node_packages" => {
+        "express" => {
+          "version" => "3.2.6",
+        }
       }
     }
   end
