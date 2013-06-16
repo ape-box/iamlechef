@@ -1,6 +1,3 @@
+.vagrant
+.settings
 app/node_modules
-app/save.js
-
-*~
-*.swp
-#*
